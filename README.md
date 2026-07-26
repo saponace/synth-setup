@@ -68,17 +68,15 @@ flowchart LR
     class audio1,audio2,audio3,audio4,audio5,audio6,audio7 mixer
 
     MIX out@-- "main out" --> MON
-    class out monitoring
+    class out mixer
 
     MIX fxSend@-- "aux send" --> ZOOM
     ZOOM fxReturn@-- "aux return (stereo)" --> MIX
-    class fxSend,fxReturn fx
+    class fxSend,fxReturn mixer
 ```
 
 **Legend**
 
 - MIDI: blue
 - CV/Gate/Clock: green
-- Audio/mixer: orange
-- FX loop: purple
-- Monitoring: red
+- Audio: orange
