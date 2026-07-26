@@ -1,0 +1,52 @@
+VERSION 1
+
+TRACKNAME Subharmonicon
+
+TYPE MONO
+
+OUTPORT A
+
+OUTCHAN 2
+
+INPORT NULL
+
+INCHAN NULL
+
+MAXRATE NULL
+
+[DRUMLANES]
+[/DRUMLANES]
+
+[PC]
+[/PC]
+
+[CC]
+91 Note Priority
+103 VCO1 Sub1 Freq
+104 VCO1 Sub2 Freq
+105 VCO2 Sub1 Freq
+106 VCO2 Sub2 Freq
+113 Rhythm Gen Logic
+[/CC]
+
+[NRPN]
+[/NRPN]
+
+[CC_PAIR]
+4:36 VCO1 Freq
+12:44 VCO2 Freq
+23:55 VCF EG Attack
+24:56 VCF EG Decay
+28:60 VCA EG Attack
+29:61 VCA EG Decay
+[/CC_PAIR]
+
+[ASSIGN]
+[/ASSIGN]
+
+[AUTOMATION]
+[/AUTOMATION]
+
+[COMMENT]
+CC/CC_PAIR data from midi.guide
+[/COMMENT]

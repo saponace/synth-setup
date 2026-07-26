@@ -1,0 +1,69 @@
+VERSION 1
+
+TRACKNAME Shruthi-1
+
+TYPE MONO
+
+OUTPORT A
+
+OUTCHAN 3
+
+INPORT NULL
+
+INCHAN NULL
+
+MAXRATE NULL
+
+[DRUMLANES]
+[/DRUMLANES]
+
+[PC]
+[/PC]
+
+[CC]
+20 osc 1 shape
+21 osc 1 parameter
+22 osc 1 range
+23 sub or transient shape
+24 osc 2 shape
+25 osc 2 parameter
+26 osc 2 range
+27 osc 2 detune
+28 modulation operator
+29 osc 1-2 balance
+30 sub osc volume
+31 noise volume
+102 env to cutoff amt
+103 lfo to cutoff amt
+104 env 1 attack
+105 env 1 decay
+106 env 1 sustain
+107 env 1 release
+108 env 2 attack
+109 env 2 decay
+110 env 2 sustain
+111 env 2 release
+112 lfo 1 waveform
+113 lfo 1 rate
+114 lfo 1 rise time
+115 lfo 1 tempo sync
+116 lfo 2 waveform
+117 lfo 2 rate
+118 lfo 2 rise time
+119 lfo 2 tempo sync
+[/CC]
+
+[NRPN]
+15:74:7 filter cutoff
+15:71:7 filter resonance
+[/NRPN]
+
+[ASSIGN]
+[/ASSIGN]
+
+[AUTOMATION]
+[/AUTOMATION]
+
+[COMMENT]
+CC/NRPN data from a Squarp forum community definition
+[/COMMENT]
