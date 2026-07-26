@@ -65,7 +65,5 @@ MAXRATE NULL
 [/AUTOMATION]
 
 [COMMENT]
-CC/NRPN data from a Squarp forum community definition, not Mutable
-Instruments' official docs -- check that thread first if a value looks
-wrong.
+CC/NRPN data from a Squarp forum community definition
 [/COMMENT]

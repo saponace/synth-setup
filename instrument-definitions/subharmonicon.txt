@@ -48,8 +48,5 @@ MAXRATE NULL
 [/AUTOMATION]
 
 [COMMENT]
-CC/CC_PAIR data from midi.guide, not Moog's official docs. These are
-direct parameter control -- a separate mechanism from the note-based
-transpose behavior documented in README.md; sending a CC here doesn't
-trigger or interact with that transpose logic.
+CC/CC_PAIR data from midi.guide
 [/COMMENT]
