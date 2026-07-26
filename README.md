@@ -43,7 +43,7 @@ flowchart LR
     class midi0,midi1,midi2,midi3,midi4,midi5,midi6 midi
 
     %% ----- CV links (pitch/mod) -----
-    HAPAX cv1@-. "LFO (CV 4)" .-> SPARECV
+    HAPAX cv1@-. "LFO (CV 1)" .-> SPARECV
     class cv1 cv
 
     %% ----- Clock links -----
