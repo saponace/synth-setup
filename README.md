@@ -3,10 +3,9 @@
 config:
   theme: neutral
 ---
-flowchart RL
+flowchart LR
     %% ----- One color per connection group -----
     classDef midi stroke:#4c9aff,color:#4c9aff
-    classDef clock stroke:#12b886,color:#12b886
     classDef cv stroke:#66a80f,color:#66a80f
     classDef mixer stroke:#f08c00,color:#f08c00
     classDef fx stroke:#be4bdb,color:#be4bdb
@@ -38,16 +37,11 @@ flowchart RL
     SPLIT midi3@-. "ch 3" .-> SWAP
     SPLIT midi4@-. "ch 4" .-> XD
     SPLIT midi5@-. "ch 5" .-> SUBH
-    XD midi6@-. "in 1" .-> HAPAX
-    class midi0,midi1,midi2,midi3,midi4,midi5,midi6 midi
+    class midi0,midi1,midi2,midi3,midi4,midi5 midi
 
     %% ----- CV links (pitch/mod) -----
     HAPAX cv1@-. "LFO" .-> SPARECV
     class cv1 cv
-
-    %% ----- Clock links -----
-    SUBH clk1@-. "clock" .-> DFAM
-    class clk1 clock
 
     %% ----- Audio links -----
     DFAM audio1@--> SUBMIX
@@ -70,7 +64,6 @@ flowchart RL
 **Legend**
 
 - MIDI (blue): dotted arrow
-- Clock/sync (teal): dotted arrow
 - CV (green): dotted arrow
 - Audio/mixer (orange): solid arrow
 - FX loop (purple): solid arrow
@@ -90,9 +83,9 @@ Hapax has 16 tracks (any mix of MIDI or CV/Gate) and 4 physical CV/Gate pairs. A
 | 6–16  | —    | free                                     | —                       |
 
 Notes:
-- Minilogue XD is bidirectional: it receives sequenced notes from Hapax on ch 4 (via the Thru box) and also sends its own keybed as a live controller directly into Hapax MIDI **in 1** — this is an input routing setting, not a separate track.
+- Minilogue XD is bidirectional: it receives sequenced notes from Hapax on ch 4 (via the Thru box) and also sends its own keybed as a live controller directly into Hapax MIDI **in 1** — this is an input routing setting, not a separate track. *(Not drawn as an arrow above — that return link was pulling Minilogue out of the Synths column, so it's documented here in text only.)*
 - Subharmonicon has no CV/Gate connection. Its MIDI in (front-panel patchbay, 3.5mm TRS Type A) now comes through the Thru box on ch 5, same as the other synths. Incoming MIDI only transposes Subharmonicon's own onboard 4-step/polyrhythmic sequencer and syncs its internal clock — it does not let Hapax dictate notes 1:1 like CV+Gate would. This preserves Subharmonicon's native semi-autonomous character.
-- Subharmonicon relays clock to DFAM: its SEQ CLK output tracks its internal clock (which MIDI clock overrides), so DFAM's Clock In gets a tempo-locked signal without Hapax needing a dedicated CV/Gate cable.
+- Subharmonicon relays clock to DFAM: its SEQ CLK output tracks its internal clock (which MIDI clock overrides), so DFAM's Clock In gets a tempo-locked signal without Hapax needing a dedicated CV/Gate cable. *(Same reason — also omitted as an arrow to keep DFAM aligned with the rest of the Synths column.)*
 - DFAM currently has no active connection to Hapax for pitch — CV+Gate is deferred for now. It runs on its own onboard 8-step sequencer, clock-synced via Subharmonicon. Add a CV+Gate track (any of Hapax's 4 free pairs) whenever ready to sequence it directly from Hapax.
 - Hapax MIDI usage: 1 of 4 outs (**out 1** → Thru box), 1 of 2 ins (**in 1** ← Minilogue). The rest are spare for future direct connections.
 
