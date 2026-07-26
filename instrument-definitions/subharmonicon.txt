@@ -1,0 +1,44 @@
+VERSION 1
+
+TRACKNAME Subharmonicon
+
+TYPE MONO
+
+OUTPORT NULL
+
+OUTCHAN 2
+
+INPORT NULL
+
+INCHAN NULL
+
+MAXRATE NULL
+
+[DRUMLANES]
+[/DRUMLANES]
+
+[PC]
+[/PC]
+
+[CC]
+91 Note Priority
+[/CC]
+
+[NRPN]
+[/NRPN]
+
+[ASSIGN]
+[/ASSIGN]
+
+[AUTOMATION]
+[/AUTOMATION]
+
+[COMMENT]
+Moog Subharmonicon has minimal MIDI: incoming notes transpose its own
+onboard 4-step/polyrhythmic sequencer rather than playing 1:1, and
+MIDI clock overrides its internal clock and relays out to DFAM (see
+README.md notes). CC 91 sets Low/High/Last note priority -- the only
+documented CC. Routing set for this track: ch 2 via the Thru box.
+OUTPORT left NULL -- set it to whichever physical Hapax port (A/B/C/D)
+feeds the Thru box once confirmed.
+[/COMMENT]

@@ -1,0 +1,47 @@
+VERSION 1
+
+TRACKNAME DrumBrute
+
+TYPE DRUM
+
+OUTPORT NULL
+
+OUTCHAN 5
+
+INPORT NULL
+
+INCHAN NULL
+
+MAXRATE NULL
+
+[DRUMLANES]
+[/DRUMLANES]
+
+[PC]
+[/PC]
+
+[CC]
+[/CC]
+
+[NRPN]
+[/NRPN]
+
+[ASSIGN]
+[/ASSIGN]
+
+[AUTOMATION]
+[/AUTOMATION]
+
+[COMMENT]
+INCOMPLETE: the DrumBrute Impact's note-to-voice map (Kick, Snare,
+Clap, Toms, Cymbal, Hihats, etc.) is NOT filled in below -- I could not
+verify it through the manual PDF or web search and won't guess drum
+note numbers. Arturia's manual has it at "9.10.5 Drum Map" (around
+page 104 of drumbrute-impact_Manual_1_0_EN.pdf). Check that page, or
+Arturia's MIDI Control Center software, and fill in [DRUMLANES] as
+"NOTE_NUMBER voice_name" per line, one per drum voice.
+Routing set for this track: ch 5 via the Thru box, landing on the
+Mackie's "tape in" rather than a numbered channel (README.md diagram).
+OUTPORT left NULL -- set it to whichever physical Hapax port (A/B/C/D)
+feeds the Thru box once confirmed.
+[/COMMENT]

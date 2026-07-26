@@ -1,0 +1,43 @@
+VERSION 1
+
+TRACKNAME Model D
+
+TYPE MONO
+
+OUTPORT NULL
+
+OUTCHAN 1
+
+INPORT NULL
+
+INCHAN NULL
+
+MAXRATE NULL
+
+[DRUMLANES]
+[/DRUMLANES]
+
+[PC]
+[/PC]
+
+[CC]
+[/CC]
+
+[NRPN]
+[/NRPN]
+
+[ASSIGN]
+[/ASSIGN]
+
+[AUTOMATION]
+[/AUTOMATION]
+
+[COMMENT]
+Behringer Model D does not implement MIDI CC -- it responds to notes
+and a handful of SysEx setup commands only (confirmed against
+Behringer's own documentation), so there is no CC map to add here.
+This is not a placeholder, it's the complete definition. Routing set
+for this track: ch 1 via the Thru box (README.md diagram). OUTPORT
+left NULL -- set it to whichever physical Hapax port (A/B/C/D) feeds
+the Thru box once confirmed.
+[/COMMENT]

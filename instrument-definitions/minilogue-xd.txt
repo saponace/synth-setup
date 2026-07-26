@@ -1,0 +1,232 @@
+VERSION 1
+
+TRACKNAME Minilogue XD
+
+TYPE POLY
+
+OUTPORT NULL
+
+OUTCHAN 4
+
+INPORT NULL
+
+INCHAN NULL
+
+MAXRATE NULL
+
+[DRUMLANES]
+[/DRUMLANES]
+
+[PC]
+[/PC]
+
+[CC]
+1 Joystick+
+2 Joystick-
+7 Volume
+5 Portamento
+11 Expression
+27 Voice-Depth
+64 Sustain
+
+50 VCO1 Wave
+48 VCO1 Octave
+34 VCO1 Pitch
+36 VCO1 Shape
+51 VCO2 Wave
+49 VCO2 Octave
+35 VCO2 Pitch
+37 VCO2 Shape
+80 OSC-Sync On/Off
+81 Ring On/Off
+41 XMod Depth
+
+53 ME Type
+103 ME Sub-Type
+54 ME Shape
+104 Shift Shape
+
+39 MIX VCO1
+40 MIX VCO2
+33 MIX ME
+
+43 VCF Cutoff
+44 VCF Resonance
+84 VCF Drive
+83 VCF Keytrack
+
+16 AMP Attack
+17 AMP Decay
+18 AMP Sustain
+19 AMP Release
+
+20 EG Attack
+21 EG Decay
+22 EG Intensity
+23 EG Target
+
+57 LFO Wave
+58 LFO Mode
+24 LFO Rate
+26 LFO Intensity
+56 LFO Target
+
+88 MOD Type
+96 MOD Sub-Type
+28 MOD Time
+29 MOD Depth
+89 DLY Type
+105 DLY Time
+106 DLY Depth
+107 DLY Dry/Wet
+90 RVB Type
+108 RVB Time
+109 RVB Depth
+110 RVB Dry/Wet
+92 MOD On/Off
+93 DLY On/Off
+94 RVB On/Off
+118 CV IN 1
+119 CV IN 2
+[/CC]
+
+[NRPN]
+:16:7 Voice Mode Type
+:17:7 MSEL Noise
+:18:7 MSEL VPM
+:19:7 MSEL USR
+:20:14 MSHP Noise
+:21:14 MSHP VPM
+:22:14 MSHP USR
+:23:14 MSHFT Noise
+:24:14 MSHFT VPM
+:25:14 MSHFT USR
+:32:7 BEND RANGE+
+:33:7 BEND RANGE-
+:34:7 JSTK+ ASSGN
+:35:14 JSTK+ RANGE
+:36:7 JSTK- ASSGN
+:37:14 JSTK- RANGE
+:38:7 CV IN MODE
+:39:7 CV1 ASSGN
+:40:7 CV1 RANGE
+:41:7 CV2 ASSGN
+:42:7 CV2 RANGE
+:48:7 MICRO TUNING
+:49:7 SCALE KEY
+:50:7 PRGM TUNING
+:52:7 LFO KEY SYNC
+:53:7 LFO VOICE SYNC
+:54:7 LFO TARGET OSC
+:56:7 EG VELOCITY
+:57:7 AMP VELOCITY
+:58:7 MULTI OCT
+:59:7 MULTI ROUTE
+:60:7 EG LEGATO
+:61:7 PORTA MODE
+:62:7 PORTA BPM SYNC
+:63:7 PRGM LVL
+:64:14 VPM PAR 1
+:65:14 VPM PAR 2
+:66:14 VPM PAR 3
+:67:14 VPM PAR 4
+:68:14 VPM PAR 5
+:69:14 VPM PAR 6
+:72:14 USR PAR 1
+:73:14 USR PAR 2
+:74:14 USR PAR 3
+:75:14 USR PAR 4
+:76:14 USR PAR 5
+:77:14 USR PAR 6
+:80:7 PRGM TRANSPOSE
+:127:14 MASTER VOL
+[/NRPN]
+
+[ASSIGN]
+1 CC:88 #Mod Type
+2 CC:96 #Mod Sub-Type
+3 CC:89 #Delay Type
+4 CC:90 #Reverb Type
+5 CC:29 #Mod Depth
+6 CC:105 #Delay Time
+7 CC:112 #Delay Depth
+8 CC:115 #Reverb Depth
+[/ASSIGN]
+
+[AUTOMATION]
+PB
+AT
+
+CC:1 #Joystick+
+CC:2 #Joystick-
+CC:7 #Volume
+CC:5 #Portamento
+CC:11 #Expression
+CC:27 #Voice-Depth
+
+CC:50 #VCO1 Wave
+CC:48 #VCO1 Octave
+CC:34 #VCO1 Pitch
+CC:36 #VCO1 Shape
+CC:51 #VCO2 Wave
+CC:49 #VCO1 Octave
+CC:35 #VCO1 Pitch
+CC:37 #VCO1 Shape
+CC:80 #OSC-Sync On/Off
+CC:81 #Ring On/Off
+CC:41 #Cross-Mod Depth
+
+CC:53 #ME Type
+CC:103 #ME Sub-Type
+CC:54 #ME Shape
+CC:104 #Shift Shape
+
+CC:39 #Mix VCO1
+CC:40 #Mix VCO2
+CC:33 #Mix ME
+
+CC:43 #Filter Cutoff
+CC:44 #Filter Resonance
+CC:84 #Filter Drive
+CC:83 #Filter Keytrack
+
+CC:16 #Amp Attack
+CC:17 #Amp Decay
+CC:18 #Amp Sustain
+CC:19 #Amp Release
+
+CC:20 #EG Attack
+CC:21 #EG Decay
+CC:22 #EG Intensity
+CC:23 #EG Target
+
+CC:57 #LFO Wave
+CC:58 #LFO Mode
+CC:24 #LFO Rate
+CC:26 #LFO Intensity
+CC:56 #LFO Target
+
+CC:88 #Mod Type
+CC:96 #Mod Sub-Type
+CC:28 #Mod Time
+CC:29 #Mod Depth
+CC:89 #Delay Type
+CC:105 #Delay Time
+CC:106 #Delay Depth
+CC:107 #Delay Dry/Wet
+CC:90 #Reverb Type
+CC:108 #Reverb Time
+CC:109 #Reverb Depth
+CC:110 #Reverb Dry/Wet
+CC:92 #Modulation On/Off
+CC:93 #Delay On/Off
+CC:94 #Reverb On/Off
+[/AUTOMATION]
+
+[COMMENT]
+Korg Minilogue XD. CC/NRPN/ASSIGN/AUTOMATION data from the community
+definition posted by Laser on the Squarp forum (Nov 2024), verbatim.
+Routing set for this track: ch 4 via the Thru box (README.md diagram).
+OUTPORT left NULL -- set it to whichever physical Hapax port (A/B/C/D)
+actually feeds the Thru box once confirmed.
+[/COMMENT]
