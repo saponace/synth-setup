@@ -15,6 +15,16 @@ INCHAN NULL
 MAXRATE NULL
 
 [DRUMLANES]
+36 Kick
+37 Snare1
+38 Snare2
+39 Tom H
+40 Tom L
+41 Cymbal
+42 Cowbell
+43 Cl Hat
+44 Op Hat
+45 FM
 [/DRUMLANES]
 
 [PC]
@@ -33,10 +43,12 @@ MAXRATE NULL
 [/AUTOMATION]
 
 [COMMENT]
-INCOMPLETE: the note-to-voice map (Kick, Snare, Clap, Toms, Cymbal,
-Hihats, etc.) is NOT filled in below -- could not verify it via the
-manual PDF or web search, won't guess drum note numbers. Check
-Arturia's manual, "9.10.5 Drum Map" (~page 104), or the MIDI Control
-Center software, then fill in [DRUMLANES] as "NOTE_NUMBER voice_name"
-per line.
+Drum map from Arturia's manual, section 9.10.5 (factory default --
+each note is editable 0-127 per pad via MIDI Control Center, so this
+only holds if you haven't reassigned them on the unit). Not included:
+the 9 "Colored" alt-sound variants (Kick=48, Snare1=49, Snare2=50,
+TomH=51, TomL=52, Cymbal=53, ClHat=55, OpHat=56, FM=57 -- Cowbell has
+no Colored variant) and the 10 base voices already use all 10 lanes,
+which may exceed Hapax's per-definition drum lane limit -- trim if the
+device complains.
 [/COMMENT]
