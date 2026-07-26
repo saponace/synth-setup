@@ -3,7 +3,7 @@
 config:
   theme: neutral
 ---
-flowchart LR
+flowchart RL
     %% ----- One color per connection group -----
     classDef midi stroke:#4c9aff,color:#4c9aff
     classDef clock stroke:#12b886,color:#12b886
@@ -14,22 +14,37 @@ flowchart LR
 
     %% ===== Sequencer brain =====
     HAPAX["Hapax"]
-    SPLIT["Thru box"]
+
+    subgraph SG_THRU["Thru + LFO"]
+        direction TB
+        SPLIT["Thru box"]
+        SPARECV["spare CV out (unpatched)"]
+    end
 
     %% ===== Synths =====
-    MODELD["Model D"]
-    SWAP["Shruthi-1 ⇄ Donner B1"]
-    XD["Minilogue XD"]
-    DBI["DrumBrute"]
-    DFAM["DFAM"]
-    SUBH["Subharmonicon"]
-    SPARECV["spare CV out (unpatched)"]
+    subgraph SG_SYNTHS["Synths"]
+        direction TB
+        MODELD["Model D"]
+        SWAP["Shruthi-1 ⇄ Donner B1"]
+        XD["Minilogue XD"]
+        DBI["DrumBrute"]
+        DFAM["DFAM"]
+        SUBH["Subharmonicon"]
+    end
 
-    %% ===== Mixer / send  =====
-    SUBMIX["2ch submixer"]:::mixer
-    MIX["Mackie Mix8"]:::mixer
-    ZOOM["Zoom MS-70CDR+"]:::fx
-    MON["Monitors"]:::monitoring
+    %% ===== Submix + Mixer =====
+    subgraph SG_MIX["Submix + Mixer"]
+        direction TB
+        SUBMIX["2ch submixer"]:::mixer
+        MIX["Mackie Mix8"]:::mixer
+    end
+
+    %% ===== Monitors + FX =====
+    subgraph SG_OUT["Monitors + FX"]
+        direction TB
+        ZOOM["Zoom MS-70CDR+"]:::fx
+        MON["Monitors"]:::monitoring
+    end
 
     %% ----- MIDI links -----
     HAPAX midi0@-. "out 1" .-> SPLIT
