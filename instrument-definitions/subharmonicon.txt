@@ -48,13 +48,8 @@ MAXRATE NULL
 [/AUTOMATION]
 
 [COMMENT]
-Moog Subharmonicon. CC/CC_PAIR data from midi.guide (11 documented
-parameters: VCO1/VCO2 frequency and their SUB1/SUB2 divider freqs as
-14-bit MSB/LSB pairs, VCF/VCA envelope attack+decay as pairs, rhythm
-generator logic mode, note priority). Note that incoming MIDI notes
-separately transpose the onboard sequencer rather than playing 1:1,
-and MIDI clock overrides the internal clock and relays out to DFAM
-(see README.md notes) -- these CCs are direct parameter control, a
-separate mechanism from that note-transpose behavior.
-Routing set for this track: ch 2 via the Thru box (Hapax MIDI out A).
+CC/CC_PAIR data from midi.guide, not Moog's official docs. These are
+direct parameter control -- a separate mechanism from the note-based
+transpose behavior documented in README.md; sending a CC here doesn't
+trigger or interact with that transpose logic.
 [/COMMENT]

@@ -33,14 +33,10 @@ MAXRATE NULL
 [/AUTOMATION]
 
 [COMMENT]
-INCOMPLETE: the DrumBrute Impact's note-to-voice map (Kick, Snare,
-Clap, Toms, Cymbal, Hihats, etc.) is NOT filled in below -- I could not
-verify it through the manual PDF or web search and won't guess drum
-note numbers. Arturia's manual has it at "9.10.5 Drum Map" (around
-page 104 of drumbrute-impact_Manual_1_0_EN.pdf). Check that page, or
-Arturia's MIDI Control Center software, and fill in [DRUMLANES] as
-"NOTE_NUMBER voice_name" per line, one per drum voice.
-Routing set for this track: ch 5 via the Thru box (Hapax MIDI out A),
-landing on the Mackie's "tape in" rather than a numbered channel
-(README.md diagram).
+INCOMPLETE: the note-to-voice map (Kick, Snare, Clap, Toms, Cymbal,
+Hihats, etc.) is NOT filled in below -- could not verify it via the
+manual PDF or web search, won't guess drum note numbers. Check
+Arturia's manual, "9.10.5 Drum Map" (~page 104), or the MIDI Control
+Center software, then fill in [DRUMLANES] as "NOTE_NUMBER voice_name"
+per line.
 [/COMMENT]

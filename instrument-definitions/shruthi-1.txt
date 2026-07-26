@@ -65,8 +65,7 @@ MAXRATE NULL
 [/AUTOMATION]
 
 [COMMENT]
-Mutable Instruments Shruthi-1. CC/NRPN data from the community
-definition posted on the Squarp forum, verbatim. Routing set for this
-track: ch 3 via the Thru box (README.md diagram), which connects to
-Hapax MIDI out A.
+CC/NRPN data from a Squarp forum community definition, not Mutable
+Instruments' official docs -- check that thread first if a value looks
+wrong.
 [/COMMENT]
