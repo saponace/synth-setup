@@ -6,6 +6,7 @@ config:
 flowchart LR
     %% ----- One color per connection group -----
     classDef midi stroke:#4c9aff,color:#4c9aff
+    classDef clock stroke:#12b886,color:#12b886
     classDef cv stroke:#66a80f,color:#66a80f
     classDef mixer stroke:#f08c00,color:#f08c00
     classDef fx stroke:#be4bdb,color:#be4bdb
@@ -14,7 +15,8 @@ flowchart LR
     %% ===== Sequencer brain =====
     HAPAX["Hapax"]
     SPLIT["Thru box"]
-    SPARECV["spare CV out (unpatched)"]
+    SPARECV[" "]
+    style SPARECV fill:none,stroke:none
 
     %% ===== Synths =====
     MODELD["Model D"]
@@ -37,12 +39,16 @@ flowchart LR
     SPLIT midi3@-. "ch 3" .-> SWAP
     SPLIT midi4@-. "ch 4" .-> XD
     SPLIT midi2@-. "ch 5" .-> DBI
-    XD midi6@-. "in 1" .-> HAPAX
+    XD midi6@-. "keyboard control" .-> HAPAX
     class midi0,midi1,midi2,midi3,midi4,midi5,midi6 midi
 
     %% ----- CV links (pitch/mod) -----
     HAPAX cv1@-. "LFO (CV 4)" .-> SPARECV
     class cv1 cv
+
+    %% ----- Clock links -----
+    SUBH clk1@-. "clock" .-> DFAM
+    class clk1 clock
 
     %% ----- Audio links -----
     %% (the ~~~ invisible links anchor each direct-to-mixer synth to
@@ -73,6 +79,7 @@ flowchart LR
 **Legend**
 
 - MIDI (blue): dotted arrow
+- Clock/sync (teal): dotted arrow
 - CV (green): dotted arrow
 - Audio/mixer (orange): solid arrow
 - FX loop (purple): solid arrow
@@ -80,18 +87,13 @@ flowchart LR
 
 ## Hapax track map
 
-Hapax has 16 tracks (any mix of MIDI or CV/Gate) and 4 physical CV/Gate pairs. Pair 4's CV (CV 4) is reserved for the spare LFO out; pairs 1-3 are fully free. Proposed assignment:
+Hapax has 16 tracks (any mix of MIDI or CV/Gate) and 4 physical CV/Gate pairs. Pair 4's CV (CV 4) is reserved for the spare LFO out; pairs 1-3 are fully free. Tempo is a global project setting, not tied to any track number — there's no "clock track" to reserve. Proposed assignment:
 
-| Track | Type | Destination                            | Channel / CV pair    |
-|-------|------|-----------------------------------------|------------------------|
-| 1     | MIDI | Model D                                  | ch 1 (via Thru box)    |
-| 2     | MIDI | Subharmonicon (transpose + clock)         | ch 2 (via Thru box)    |
-| 3     | MIDI | Shruthi-1 ⇄ Donner B1 (swap)              | ch 3 (via Thru box)    |
-| 4     | MIDI | Minilogue XD                             | ch 4 (via Thru box)    |
-| 5     | MIDI | DrumBrute                                | ch 5 (via Thru box)    |
-| 6–16  | —    | free                                     | —                       |
-
-Notes:
-- Subharmonicon has no CV/Gate connection — its MIDI in shares ch 2 with the other synths, but incoming MIDI only transposes its own onboard 4-step/polyrhythmic sequencer and syncs its internal clock, rather than dictating notes 1:1 like CV+Gate would.
-- Subharmonicon relays clock to DFAM (not drawn above — a direct arrow between them would force the two into different columns): its SEQ CLK output tracks its internal clock, giving DFAM's Clock In a tempo-locked signal with no cable needed from Hapax.
-- DFAM's pitch CV+Gate is deferred: it currently runs its own onboard 8-step sequencer, only clock-synced via Subharmonicon.
+| Hapax track | Type              | Destination                        | Hapax ch / CV pair   | Mixer channel              |
+|-------------|-------------------|-------------------------------------|------------------------|------------------------------|
+| 1           | MIDI              | Model D                             | ch 1 (via Thru box)     | Mackie ch 1                  |
+| 2           | MIDI              | Subharmonicon (transpose + clock)   | ch 2 (via Thru box)     | Mackie ch 2 (via submixer)   |
+| 3           | MIDI              | Shruthi-1 ⇄ Donner B1 (swap)         | ch 3 (via Thru box)     | Mackie ch 3                  |
+| 4           | MIDI              | Minilogue XD                        | ch 4 (via Thru box)     | Mackie ch 4 (stereo)         |
+| 5           | MIDI              | DrumBrute                            | ch 5 (via Thru box)     | Mackie tape in               |
+| —           | CV/Gate (planned) | DFAM                                 | deferred (pairs 1-3)    | Mackie ch 2 (via submixer)   |
