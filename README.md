@@ -6,7 +6,6 @@ config:
 flowchart LR
     %% ----- One color per connection group -----
     classDef midi stroke:#4c9aff,color:#4c9aff
-    classDef clock stroke:#12b886,color:#12b886
     classDef cv stroke:#66a80f,color:#66a80f
     classDef mixer stroke:#f08c00,color:#f08c00
     classDef fx stroke:#be4bdb,color:#be4bdb
@@ -48,7 +47,7 @@ flowchart LR
 
     %% ----- Clock links -----
     SUBH clk1@-. "clock" .-> DFAM
-    class clk1 clock
+    class clk1 cv
 
     %% ----- Audio links -----
     %% (the ~~~ invisible links anchor each direct-to-mixer synth to
@@ -79,8 +78,7 @@ flowchart LR
 **Legend**
 
 - MIDI (blue): dotted arrow
-- Clock/sync (teal): dotted arrow
-- CV (green): dotted arrow
+- CV/Gate/Clock (green): dotted arrow
 - Audio/mixer (orange): solid arrow
 - FX loop (purple): solid arrow
 - Monitoring (red): solid arrow
