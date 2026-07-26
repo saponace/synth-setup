@@ -77,8 +77,8 @@ flowchart LR
 
 **Legend**
 
-- MIDI (blue): dotted arrow
-- CV/Gate/Clock (green): dotted arrow
-- Audio/mixer (orange): solid arrow
-- FX loop (purple): solid arrow
-- Monitoring (red): solid arrow
+- MIDI: blue
+- CV/Gate/Clock: green
+- Audio/mixer: orange
+- FX loop: purple
+- Monitoring: red
