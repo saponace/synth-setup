@@ -6,7 +6,9 @@ config:
 flowchart LR
     %% ----- One color per logical section; line style = signal type -----
     classDef sequencer stroke:#4c9aff,color:#4c9aff
+    classDef sequencerCV stroke:#4c9aff,color:#4c9aff,stroke-dasharray: 6 4
     classDef synths stroke:#66a80f,color:#66a80f
+    classDef synthsCV stroke:#66a80f,color:#66a80f,stroke-dasharray: 6 4
     classDef mixer stroke:#f08c00,color:#f08c00
     classDef fx stroke:#be4bdb,color:#be4bdb
     classDef monitoring stroke:#fa5252,color:#fa5252
@@ -42,12 +44,12 @@ flowchart LR
     class midi0,midi1,midi2,midi3,midi4,midi5 sequencer
     class midi6 synths
 
-    %% ----- CV/Gate/Clock links (thick) -----
-    HAPAX cv1@== "LFO (CV 1)" ==> SPARECV
-    class cv1 sequencer
+    %% ----- CV/Gate/Clock links (dashed) -----
+    HAPAX cv1@-- "LFO (CV 1)" --> SPARECV
+    class cv1 sequencerCV
 
-    SUBH clk1@== "clock" ==> DFAM
-    class clk1 synths
+    SUBH clk1@-- "clock" --> DFAM
+    class clk1 synthsCV
 
     %% ----- Audio links (solid) -----
     %% (the ~~~ invisible links anchor each direct-to-mixer synth to
@@ -79,6 +81,14 @@ flowchart LR
 
 **Legend**
 
-Color = section: Sequencer (blue), Synths (green), Mixer (orange), FX (purple), Monitoring (red).
+Section:
+- Sequencer: blue
+- Synths: green
+- Mixer: orange
+- FX: purple
+- Monitoring: red
 
-Line style = signal: MIDI (dotted), CV/Gate/Clock (thick), Audio (solid).
+Signal:
+- MIDI: dotted
+- CV/Gate/Clock: dashed
+- Audio: solid
