@@ -4,7 +4,7 @@ TRACKNAME Shruthi-1
 
 TYPE MONO
 
-OUTPORT NULL
+OUTPORT A
 
 OUTCHAN 3
 
@@ -67,11 +67,6 @@ MAXRATE NULL
 [COMMENT]
 Mutable Instruments Shruthi-1. CC/NRPN data from the community
 definition posted on the Squarp forum, verbatim. Routing set for this
-track: ch 3 via the Thru box (README.md diagram). OUTPORT left NULL --
-set it to whichever physical Hapax port (A/B/C/D) feeds the Thru box.
-
-This track is a swap slot (Shruthi-1 <-> Donner B1) -- this definition
-only covers the Shruthi-1 side. No verified CC map exists yet for the
-Donner B1; load this definition only when the Shruthi is the one
-physically patched in.
+track: ch 3 via the Thru box (README.md diagram), which connects to
+Hapax MIDI out A.
 [/COMMENT]

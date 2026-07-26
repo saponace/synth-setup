@@ -34,7 +34,7 @@ flowchart LR
     ZOOM["Zoom MS-70CDR+"]:::fx
 
     %% ----- MIDI links (dotted) -----
-    HAPAX midi0@-. "out 1" .-> SPLIT
+    HAPAX midi0@-. "out A" .-> SPLIT
     SPLIT midi1@-. "ch 1" .-> MODELD
     SPLIT midi5@-. "ch 2" .-> SUBH
     SPLIT midi3@-. "ch 3" .-> SWAP

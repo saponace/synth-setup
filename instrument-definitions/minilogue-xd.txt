@@ -4,7 +4,7 @@ TRACKNAME Minilogue XD
 
 TYPE POLY
 
-OUTPORT NULL
+OUTPORT A
 
 OUTCHAN 4
 
@@ -226,7 +226,6 @@ CC:94 #Reverb On/Off
 [COMMENT]
 Korg Minilogue XD. CC/NRPN/ASSIGN/AUTOMATION data from the community
 definition posted by Laser on the Squarp forum (Nov 2024), verbatim.
-Routing set for this track: ch 4 via the Thru box (README.md diagram).
-OUTPORT left NULL -- set it to whichever physical Hapax port (A/B/C/D)
-actually feeds the Thru box once confirmed.
+Routing set for this track: ch 4 via the Thru box (README.md diagram),
+which connects to Hapax MIDI out A.
 [/COMMENT]
