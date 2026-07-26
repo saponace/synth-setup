@@ -14,37 +14,22 @@ flowchart RL
 
     %% ===== Sequencer brain =====
     HAPAX["Hapax"]
-
-    subgraph SG_THRU["Thru + LFO"]
-        direction TB
-        SPLIT["Thru box"]
-        SPARECV["spare CV out (unpatched)"]
-    end
+    SPLIT["Thru box"]
+    SPARECV["spare CV out (unpatched)"]
 
     %% ===== Synths =====
-    subgraph SG_SYNTHS["Synths"]
-        direction TB
-        MODELD["Model D"]
-        SWAP["Shruthi-1 ⇄ Donner B1"]
-        XD["Minilogue XD"]
-        DBI["DrumBrute"]
-        DFAM["DFAM"]
-        SUBH["Subharmonicon"]
-    end
+    MODELD["Model D"]
+    SWAP["Shruthi-1 ⇄ Donner B1"]
+    XD["Minilogue XD"]
+    DBI["DrumBrute"]
+    DFAM["DFAM"]
+    SUBH["Subharmonicon"]
 
-    %% ===== Submix + Mixer =====
-    subgraph SG_MIX["Submix + Mixer"]
-        direction TB
-        SUBMIX["2ch submixer"]:::mixer
-        MIX["Mackie Mix8"]:::mixer
-    end
-
-    %% ===== Monitors + FX =====
-    subgraph SG_OUT["Monitors + FX"]
-        direction TB
-        ZOOM["Zoom MS-70CDR+"]:::fx
-        MON["Monitors"]:::monitoring
-    end
+    %% ===== Mixer / send  =====
+    SUBMIX["2ch submixer"]:::mixer
+    MIX["Mackie Mix8"]:::mixer
+    ZOOM["Zoom MS-70CDR+"]:::fx
+    MON["Monitors"]:::monitoring
 
     %% ----- MIDI links -----
     HAPAX midi0@-. "out 1" .-> SPLIT
