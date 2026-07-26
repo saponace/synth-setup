@@ -41,8 +41,7 @@ flowchart LR
     SPLIT midi4@-. "ch 4" .-> XD
     SPLIT midi2@-. "ch 5" .-> DBI
     XD midi6@-. "keyboard control" .-> HAPAX
-    class midi0,midi1,midi2,midi3,midi4,midi5 sequencer
-    class midi6 synths
+    class midi0,midi1,midi2,midi3,midi4,midi5,midi6 sequencer
 
     %% ----- CV/Gate/Clock links (dashed) -----
     HAPAX cv1@-- "LFO (CV 1)" --> SPARECV
@@ -74,9 +73,8 @@ flowchart LR
     class out mixer
 
     MIX fxSend@-- "aux send" --> ZOOM
-    class fxSend mixer
     ZOOM fxReturn@-- "aux return (stereo)" --> MIX
-    class fxReturn fx
+    class fxSend,fxReturn fx
 ```
 
 **Legend**
