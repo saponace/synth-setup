@@ -49,13 +49,6 @@ MAXRATE NULL
 [/AUTOMATION]
 
 [COMMENT]
-Factory drum map from Arturia's manual section 9.10.5, laid out for
-16-lane hapaxOS (3.10+). Page 1 (lanes 1-8) is the requested play set,
-page 2 (9-16) the rest. Base notes 36-45; Colored variants = base+12
-(notes 48-57; Cowbell 42 has no Color, so note 54 doesn't exist).
-Two lane names are aliases -- the DrumBrute has no exact match: "Clap"
-= Colored Snare 2 (note 50), "Crash" = Cymbal (note 41). Left out for
-space (16-lane cap): Col Tom H (51), Col Tom L (52), Col FM (57).
-Lane syntax is ROW:TRIG:CHAN:NOTENUMBER NAME; CHAN NULL inherits the
-track channel (10).
+Factory drum map, Arturia manual section 9.10.5. Two lane names are
+aliases. Clap is Colored Snare 2 (note 50). Crash is Cymbal (note 41).
 [/COMMENT]
