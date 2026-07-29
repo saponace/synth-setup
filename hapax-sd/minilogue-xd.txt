@@ -149,8 +149,8 @@ MAXRATE NULL
 4 CC:90 #Reverb Type
 5 CC:29 #Mod Depth
 6 CC:105 #Delay Time
-7 CC:112 #Delay Depth
-8 CC:115 #Reverb Depth
+7 CC:106 #Delay Depth
+8 CC:109 #Reverb Depth
 [/ASSIGN]
 
 [AUTOMATION]
@@ -169,9 +169,9 @@ CC:48 #VCO1 Octave
 CC:34 #VCO1 Pitch
 CC:36 #VCO1 Shape
 CC:51 #VCO2 Wave
-CC:49 #VCO1 Octave
-CC:35 #VCO1 Pitch
-CC:37 #VCO1 Shape
+CC:49 #VCO2 Octave
+CC:35 #VCO2 Pitch
+CC:37 #VCO2 Shape
 CC:80 #OSC-Sync On/Off
 CC:81 #Ring On/Off
 CC:41 #Cross-Mod Depth

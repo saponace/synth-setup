@@ -1,0 +1,54 @@
+VERSION 1
+
+TRACKNAME DrumBrute
+
+TYPE DRUM
+
+OUTPORT A
+
+OUTCHAN 10
+
+INPORT NULL
+
+INCHAN NULL
+
+MAXRATE NULL
+
+[DRUMLANES]
+1:NULL:NULL:36 Kick
+2:NULL:NULL:48 Col Kick
+3:NULL:NULL:37 Snare
+4:NULL:NULL:49 Col Snare
+5:NULL:NULL:50 Clap
+6:NULL:NULL:43 Cl Hat
+7:NULL:NULL:44 Op Hat
+8:NULL:NULL:41 Crash
+9:NULL:NULL:40 Tom L
+10:NULL:NULL:39 Tom H
+11:NULL:NULL:38 Snare 2
+12:NULL:NULL:42 Cowbell
+13:NULL:NULL:45 FM
+14:NULL:NULL:55 Col Cl Hat
+15:NULL:NULL:56 Col Op Hat
+16:NULL:NULL:53 Col Crash
+[/DRUMLANES]
+
+[PC]
+[/PC]
+
+[CC]
+[/CC]
+
+[NRPN]
+[/NRPN]
+
+[ASSIGN]
+[/ASSIGN]
+
+[AUTOMATION]
+[/AUTOMATION]
+
+[COMMENT]
+Factory drum map, Arturia manual section 9.10.5. Two lane names are
+aliases. Clap is Colored Snare 2 (note 50). Crash is Cymbal (note 41).
+[/COMMENT]
