@@ -6,7 +6,7 @@ TYPE DRUM
 
 OUTPORT A
 
-OUTCHAN 5
+OUTCHAN 10
 
 INPORT NULL
 
@@ -16,21 +16,21 @@ MAXRATE NULL
 
 [DRUMLANES]
 1:NULL:NULL:36 Kick
-2:NULL:NULL:37 Snare1
-3:NULL:NULL:38 Snare2
-4:NULL:NULL:39 Tom H
-5:NULL:NULL:40 Tom L
-6:NULL:NULL:41 Cymbal
-7:NULL:NULL:42 Cowbell
-8:NULL:NULL:43 Cl Hat
-9:NULL:NULL:44 Op Hat
-10:NULL:NULL:45 FM
-11:NULL:NULL:48 Colored Kick
-12:NULL:NULL:49 Colored Snare1
-13:NULL:NULL:50 Colored Snare2
-14:NULL:NULL:53 Colored Cymbal
-15:NULL:NULL:55 Colored Cl Hat
-16:NULL:NULL:56 Colored Op Hat
+2:NULL:NULL:48 Col Kick
+3:NULL:NULL:37 Snare
+4:NULL:NULL:49 Col Snare
+5:NULL:NULL:50 Clap
+6:NULL:NULL:43 Cl Hat
+7:NULL:NULL:44 Op Hat
+8:NULL:NULL:41 Crash
+9:NULL:NULL:40 Tom L
+10:NULL:NULL:39 Tom H
+11:NULL:NULL:38 Snare 2
+12:NULL:NULL:42 Cowbell
+13:NULL:NULL:45 FM
+14:NULL:NULL:55 Col Cl Hat
+15:NULL:NULL:56 Col Op Hat
+16:NULL:NULL:53 Col Crash
 [/DRUMLANES]
 
 [PC]
@@ -49,11 +49,13 @@ MAXRATE NULL
 [/AUTOMATION]
 
 [COMMENT]
-Factory drum map from Arturia's manual section 9.10.5: 10 base voices
-(notes 36-45) plus Colored alt-sound variants (notes 48-57; Cowbell has
-none). Hapax caps a definition at 16 drum lanes, so only 6 of the 9
-Colored variants fit -- dropped Colored Tom H (51), Colored Tom L (52)
-and Colored FM (57). Swap any of those in for a lane you don't use.
+Factory drum map from Arturia's manual section 9.10.5, laid out for
+16-lane hapaxOS (3.10+). Page 1 (lanes 1-8) is the requested play set,
+page 2 (9-16) the rest. Base notes 36-45; Colored variants = base+12
+(notes 48-57; Cowbell 42 has no Color, so note 54 doesn't exist).
+Two lane names are aliases -- the DrumBrute has no exact match: "Clap"
+= Colored Snare 2 (note 50), "Crash" = Cymbal (note 41). Left out for
+space (16-lane cap): Col Tom H (51), Col Tom L (52), Col FM (57).
 Lane syntax is ROW:TRIG:CHAN:NOTENUMBER NAME; CHAN NULL inherits the
-track channel (5).
+track channel (10).
 [/COMMENT]
