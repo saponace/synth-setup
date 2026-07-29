@@ -35,11 +35,11 @@ flowchart LR
 
     %% ----- MIDI links (dotted) -----
     HAPAX midi0@-. "out A" .-> SPLIT
-    SPLIT midi1@-. "ch 1" .-> MODELD
-    SPLIT midi5@-. "ch 2" .-> SUBH
-    SPLIT midi3@-. "ch 3" .-> SWAP
-    SPLIT midi4@-. "ch 4" .-> XD
-    SPLIT midi2@-. "ch 5" .-> DBI
+    SPLIT midi1@-. "out 1 (ch 1)" .-> MODELD
+    SPLIT midi5@-. "out 2 (ch 2)" .-> SUBH
+    SPLIT midi3@-. "out 3 (ch 3)" .-> SWAP
+    SPLIT midi4@-. "out 4 (ch 4)" .-> XD
+    SPLIT midi2@-. "out 5 (ch 10)" .-> DBI
     XD midi6@-. "keyboard control" .-> HAPAX
     class midi0,midi1,midi2,midi3,midi4,midi5,midi6 sequencer
 
@@ -51,10 +51,8 @@ flowchart LR
     class clk1 synthsCV
 
     %% ----- Audio links (solid) -----
-    %% (the ~~~ invisible links anchor each direct-to-mixer synth to
-    %% the submixer's rank/column, keeping all six synths aligned since
-    %% DFAM/Subharmonicon's longer path via the submixer would otherwise
-    %% pull Mackie Mix8 further out and split the column)
+    %% (~~~ invisible links keep the six synths column-aligned despite
+    %% DFAM/Subharmonicon reaching the mixer via the submixer)
     MODELD ~~~ SUBMIX
     DFAM audio1@--> SUBMIX
     MODELD audio3@-- "ch 1" --> MIX
