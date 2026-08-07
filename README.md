@@ -26,6 +26,9 @@ flowchart LR
     XD["Minilogue XD"]:::synths
     DBI["DrumBrute"]:::synths
     DFAM["DFAM"]:::synths
+    %% patch point, not a device: only one clock cable is plugged at a time
+    CLKSEL{{"either"}}
+    style CLKSEL fill:none,stroke-dasharray: 3 3
 
     %% ===== Mixer / send  =====
     SUBMIX["2ch submixer"]:::mixer
@@ -47,8 +50,11 @@ flowchart LR
     HAPAX cv1@-- "LFO (CV 1)" --> SPARECV
     class cv1 sequencerCV
 
-    SUBH clk1@-- "clock" --> DFAM
-    class clk1 synthsCV
+    SUBH clk1@-- "clock out" --> CLKSEL
+    HAPAX clk2@-- "track 5 → gate 1" --> CLKSEL
+    CLKSEL clk3@-- "ADV/CLOCK" --> DFAM
+    class clk1,clk3 synthsCV
+    class clk2 sequencerCV
 
     %% ----- Audio links (solid) -----
     %% (~~~ invisible links keep the six synths column-aligned despite
