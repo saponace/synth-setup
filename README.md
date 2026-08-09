@@ -2,89 +2,85 @@
 ---
 config:
   theme: neutral
+  flowchart:
+    curve: monotoneX
 ---
 flowchart LR
-    %% ----- One color per logical section; line style = signal type -----
-    classDef sequencer stroke:#4c9aff,color:#4c9aff
-    classDef sequencerCV stroke:#4c9aff,color:#4c9aff,stroke-dasharray: 6 4
-    classDef synths stroke:#66a80f,color:#66a80f
-    classDef synthsCV stroke:#66a80f,color:#66a80f,stroke-dasharray: 6 4
-    classDef mixer stroke:#f08c00,color:#f08c00
-    classDef fx stroke:#be4bdb,color:#be4bdb
-    classDef monitoring stroke:#fa5252,color:#fa5252
+    %% box color = kind of gear, line style = kind of signal
+    classDef seq fill:#e8f0fc,stroke:#2f6fd0,color:#1c1c20
+    classDef voice fill:#e7f4ec,stroke:#1a8f5f,color:#1c1c20
+    classDef mix fill:#fdf1de,stroke:#c77800,color:#1c1c20
+    classDef fx fill:#f4ecfb,stroke:#7c4dbd,color:#1c1c20
+    classDef mon fill:#fdecec,stroke:#c0392b,color:#1c1c20
+    classDef pin fill:none,stroke:none
+    classDef cv stroke-dasharray: 7 4
 
-    %% ===== Sequencer brain =====
-    HAPAX["Hapax"]:::sequencer
-    SPLIT["Thru box"]:::sequencer
-    SPARECV[" "]
-    style SPARECV fill:none,stroke:none
+    %% legend, tied to Hapax by invisible links so it lands in the left columns
+    LA[" "] -. "MIDI" .-> LB[" "]
+    LC[" "] k1@-- "CV / gate" --> LD[" "]
+    LE[" "] -- "audio" --> LF[" "]
+    LB ~~~ HAPAX
+    LD ~~~ HAPAX
+    LF ~~~ HAPAX
 
-    %% ===== Synths =====
-    MODELD["Model D"]:::synths
-    SUBH["Subharmonicon"]:::synths
-    SWAP["Shruthi-1 ⇄ Donner B1"]:::synths
-    XD["Minilogue XD"]:::synths
-    DBI["DrumBrute"]:::synths
-    DFAM["DFAM"]:::synths
+    HAPAX["Hapax"]
+    THRU["Thru box"]
+    MODELD["Model D"]
+    SUBH["Subharmonicon"]
+    SWAP["Shruthi-1 ⇄ Donner B1"]
+    XD["Minilogue XD"]
+    DFAM["DFAM"]
+    DBI["DrumBrute Impact"]
+    ZOOM["Zoom MS-70CDR+"]
+    SUBMIX["Moog submixer"]
+    MIX["Mackie Mix8"]
+    MON["Monitors"]
 
-    %% ===== Mixer / send  =====
-    SUBMIX["2ch submixer"]:::mixer
-    MIX["Mackie Mix8"]:::mixer
-    MON["Monitors"]:::monitoring
-    ZOOM["Zoom MS-70CDR+"]:::fx
+    %% ----- CV / gate -----
+    HAPAX c1@--> DFAM
 
-    %% ----- MIDI links (dotted) -----
-    HAPAX midi0@-. "out A" .-> SPLIT
-    SPLIT midi1@-. "out 1 (ch 1)" .-> MODELD
-    SPLIT midi5@-. "out 2 (ch 2)" .-> SUBH
-    SPLIT midi3@-. "out 3 (ch 3)" .-> SWAP
-    SPLIT midi4@-. "out 4 (ch 4)" .-> XD
-    SPLIT midi2@-. "out 5 (ch 10)" .-> DBI
-    XD midi6@-. "keyboard control" .-> HAPAX
-    class midi0,midi1,midi2,midi3,midi4,midi5,midi6 sequencer
+    %% ----- MIDI -----
+    HAPAX -.-> THRU
+    THRU -.-> MODELD
+    THRU -.-> SUBH
+    THRU -.-> SWAP
+    THRU -.-> XD
+    THRU -.-> DBI
+    XD -.-> HAPAX
 
-    %% ----- CV/Gate/Clock links (dashed) -----
-    HAPAX cv1@-- "LFO (CV 1)" --> SPARECV
-    class cv1 sequencerCV
-
-    HAPAX clk1@-- "track 5 → gate 1 → ADV/CLOCK" --> DFAM
-    class clk1 sequencerCV
-
-    %% ----- Audio links (solid) -----
-    %% (~~~ invisible links keep the six synths column-aligned despite
-    %% DFAM/Subharmonicon reaching the mixer via the submixer)
+    %% ----- audio -----
+    %% (~~~ keeps the voices in one column despite the Subharmonicon
+    %% and DFAM reaching the mixer through the submixer, and keeps the
+    %% monitors out of the Zoom's column)
     MODELD ~~~ SUBMIX
-    DFAM audio1@--> SUBMIX
-    MODELD audio3@-- "ch 1" --> MIX
-    SUBH audio2@--> SUBMIX
-    SUBMIX audio4@-- "ch 2" --> MIX
-    SWAP audio5@-- "ch 3" --> MIX
-    XD audio6@-- "ch 4 (stereo)" --> MIX
-    DBI audio7@-- "tape in" --> MIX
     SWAP ~~~ SUBMIX
     XD ~~~ SUBMIX
     DBI ~~~ SUBMIX
-    class audio1,audio2,audio3,audio5,audio6,audio7 synths
-    class audio4 mixer
+    ZOOM ~~~ MON
+    MIX -- "send" --> ZOOM
+    ZOOM -- "return" --> MIX
+    SUBH --> SUBMIX
+    DFAM --> SUBMIX
+    SUBMIX --> MIX
+    MODELD --> MIX
+    SWAP --> MIX
+    XD --> MIX
+    DBI --> MIX
+    MIX --> MON
 
-    MIX out@-- "main out" --> MON
-    class out mixer
-
-    MIX fxSend@-- "aux send" --> ZOOM
-    ZOOM fxReturn@-- "aux return (stereo)" --> MIX
-    class fxSend,fxReturn fx
+    class HAPAX,THRU seq
+    class MODELD,SUBH,SWAP,XD,DFAM,DBI voice
+    class SUBMIX,MIX mix
+    class ZOOM fx
+    class MON mon
+    class LA,LB,LC,LD,LE,LF pin
+    class c1,k1 cv
 ```
 
-**Legend**
-
-Section:
-- Sequencer: blue
-- Synths: green
-- Mixer: orange
-- FX: purple
-- Monitoring: red
-
-Signal:
-- MIDI: dotted
-- CV/Gate/Clock: dashed
-- Audio: solid
+|             | Model D | Subharmonicon     | Shruthi-1 ⇄ Donner B1 | Minilogue XD | DFAM                | DrumBrute Impact |
+| ----------- | ------- | ----------------- | --------------------- | ------------ | ------------------- | ---------------- |
+| Hapax track | 1       | 2                 | 3                     | 4            | 5                   | 10               |
+| Thru out    | 1       | 2                 | 3                     | 4            | —                   | 5                |
+| MIDI ch     | 1       | 2                 | 3                     | 4            | —                   | 10               |
+| CV / gate   | —       | —                 | —                     | —            | gate 1 → ADV/CLOCK  | —                |
+| Mixer ch    | 1       | 2 (Moog submixer) | 3                     | 4 (stereo)   | 2 (Moog submixer)   | tape in          |
