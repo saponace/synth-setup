@@ -3,7 +3,7 @@
 config:
   theme: neutral
   flowchart:
-    curve: monotoneX
+    curve: basis
 ---
 flowchart LR
     %% box color = kind of gear, line style = kind of signal
@@ -27,9 +27,9 @@ flowchart LR
     THRU["Thru box"]
     MODELD["Model D"]
     SUBH["Subharmonicon"]
+    DFAM["DFAM"]
     SWAP["Shruthi-1 ⇄ Donner B1"]
     XD["Minilogue XD"]
-    DFAM["DFAM"]
     DBI["DrumBrute Impact"]
     ZOOM["Zoom MS-70CDR+"]
     SUBMIX["Moog submixer"]
@@ -49,27 +49,34 @@ flowchart LR
     XD -.-> HAPAX
 
     %% ----- audio -----
-    %% (~~~ keeps the voices in one column despite the Subharmonicon
-    %% and DFAM reaching the mixer through the submixer, and keeps the
-    %% monitors out of the Zoom's column)
-    MODELD ~~~ SUBMIX
-    SWAP ~~~ SUBMIX
-    XD ~~~ SUBMIX
-    DBI ~~~ SUBMIX
-    ZOOM ~~~ MON
-    MIX -- "send" --> ZOOM
-    ZOOM -- "return" --> MIX
+    MODELD --> MIX
     SUBH --> SUBMIX
     DFAM --> SUBMIX
-    SUBMIX --> MIX
-    MODELD --> MIX
     SWAP --> MIX
     XD --> MIX
     DBI --> MIX
+    SUBMIX --> MIX
+    MIX -- "send" --> ZOOM
+    ZOOM -- "return" --> MIX
     MIX --> MON
 
+    %% ----- carry no signal, they only steer the layout -----
+    %% RAIL is an invisible stand-in for the submixer: it holds the voices
+    %% that bypass the submixer in one column with the rest, without the
+    %% submixer itself being dragged down to the middle of all six of them
+    RAIL[" "]:::pin
+    MODELD ~~~ RAIL
+    SWAP ~~~ RAIL
+    XD ~~~ RAIL
+    DBI ~~~ RAIL
+    RAIL ~~~ MIX
+    %% DFAM among the voices instead of pushed to an end of the column,
+    %% monitors out of the Zoom's column
+    THRU ~~~ DFAM
+    ZOOM ~~~ MON
+
     class HAPAX,THRU seq
-    class MODELD,SUBH,SWAP,XD,DFAM,DBI voice
+    class MODELD,SUBH,DFAM,SWAP,XD,DBI voice
     class SUBMIX,MIX mix
     class ZOOM fx
     class MON mon
