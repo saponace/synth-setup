@@ -1,0 +1,41 @@
+VERSION 1
+
+TRACKNAME DFAM
+
+TYPE POLY
+
+OUTPORT G1
+
+OUTCHAN NULL
+
+INPORT NULL
+
+INCHAN NULL
+
+MAXRATE NULL
+
+[DRUMLANES]
+[/DRUMLANES]
+
+[PC]
+[/PC]
+
+[CC]
+[/CC]
+
+[NRPN]
+[/NRPN]
+
+[ASSIGN]
+[/ASSIGN]
+
+[AUTOMATION]
+[/AUTOMATION]
+
+[COMMENT]
+DFAM has no MIDI at all, so this holds Hapax track 2 as a gate-only
+track. Gate 1 goes to the DFAM ADV/CLOCK jack: every note on this track
+advances its onboard 8-step sequencer by one step. Pitch is ignored, only
+the trigger matters, so step length and rate are what shape the part.
+Untested on hardware, unlike the four MIDI definitions here.
+[/COMMENT]
