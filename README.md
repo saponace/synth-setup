@@ -46,6 +46,7 @@ flowchart LR
     THRU -.-> SUBH
     THRU -.-> XD
     XD -.-> HAPAX
+    HAPAX -.-> L6
 
     %% ----- audio -----
     DBI -- "mix + kick" --> L6
@@ -80,14 +81,14 @@ instrument. The thru box out number is *not* aligned — it repeats every
 channel to every output, so which physical port a synth sits on is
 arbitrary and the existing cabling is kept.
 
-|                | DrumBrute Impact | DFAM               | Model D | Shruthi-1 ⇄ Donner B1 | Subharmonicon | Minilogue XD |
-| -------------- | ---------------- | ------------------ | ------- | --------------------- | ------------- | ------------ |
-| Hapax track    | 1                | 2                  | 3       | 4                     | 5             | 6            |
-| MIDI ch        | 1                | — (no MIDI)        | 3       | 4                     | 5             | 6            |
-| Thru box out   | 5                | —                  | 1       | 3                     | 2             | 4            |
-| CV / gate      | —                | gate 1 → ADV/CLOCK | —       | —                     | —             | —            |
-| L6max strip    | 1 (+ 7 for kick) | 2                  | 3       | 4                     | 5             | 6            |
-| Audio out      | mono mix + kick  | mono               | mono    | mono                  | mono          | stereo       |
+|               | DrumBrute Impact | DFAM               | Model D | Shruthi-1 ⇄ Donner B1 | Subharmonicon | Minilogue XD | DrumBrute kick |
+| ------------- | ---------------- | ------------------ | ------- | --------------------- | ------------- | ------------ | -------------- |
+| Hapax track   | 1                | 2                  | 3       | 4                     | 5             | 6            | 1              |
+| MIDI ch       | 1                | — (no MIDI)        | 3       | 4                     | 5             | 6            | 1              |
+| Thru box out  | 5                | —                  | 1       | 3                     | 2             | 4            | 5              |
+| CV / gate     | —                | gate 1 → ADV/CLOCK | —       | —                     | —             | —            | —              |
+| L6max strip   | 1                | 2                  | 3       | 4                     | 5             | 6            | 7              |
+| Audio out     | mono mix         | mono               | mono    | mono                  | mono          | stereo       | mono           |
 
 DFAM keeps track 2 even though it has no MIDI channel — it is driven from
 Hapax gate 1, and holding the slot keeps track number and strip number
@@ -113,6 +114,10 @@ inputs with −20 dB pads. All eight are in use.
 Aux send 1 (post-fader) feeds the MS-70CDR+, which returns on strip 8.
 The L6max also has six onboard send effects, so the pedal loop can be
 dropped later if strip 8 is needed for something else.
+
+Hapax out B → L6max MIDI in: clock to start with, sample pad triggers and
+whatever else later. Both ends are 3.5mm TRS — confirm the L6max is
+Type A like Hapax, or the link will be silent.
 
 The Mackie Mix8 and the Moog submixer are out of the chain — the L6max
 replaces both. The DrumBrute no longer goes into a Tape In, and DFAM and
