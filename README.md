@@ -56,7 +56,7 @@ flowchart LR
     SWAP --> L6
     SUBH --> L6
     XD --> L6
-    L6 -- "aux 1" --> FX
+    L6 -- "send" --> FX
     FX -- "return" --> L6
     L6 --> MON
 
