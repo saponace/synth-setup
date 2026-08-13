@@ -25,15 +25,14 @@ flowchart LR
 
     HAPAX["Hapax"]
     THRU["Thru box"]
-    MODELD["Model D"]
-    SUBH["Subharmonicon"]
-    DFAM["DFAM"]
-    SWAP["Shruthi-1 ⇄ Donner B1"]
-    XD["Minilogue XD"]
     DBI["DrumBrute Impact"]
-    ZOOM["Zoom MS-70CDR+"]
-    SUBMIX["Moog submixer"]
-    MIX["Mackie Mix8"]
+    DFAM["DFAM"]
+    MODELD["Model D"]
+    SWAP["Shruthi-1 ⇄ Donner B1"]
+    SUBH["Subharmonicon"]
+    XD["Minilogue XD"]
+    L6["L6max"]
+    FX["MS-70CDR+"]
     MON["Monitors"]
 
     %% ----- CV / gate -----
@@ -41,53 +40,45 @@ flowchart LR
 
     %% ----- MIDI -----
     HAPAX -.-> THRU
-    THRU -.-> MODELD
-    THRU -.-> SUBH
-    THRU -.-> SWAP
-    THRU -.-> XD
     THRU -.-> DBI
+    THRU -.-> MODELD
+    THRU -.-> SWAP
+    THRU -.-> SUBH
+    THRU -.-> XD
     XD -.-> HAPAX
+    HAPAX -.-> L6
 
     %% ----- audio -----
-    MODELD --> MIX
-    SUBH --> SUBMIX
-    DFAM --> SUBMIX
-    SWAP --> MIX
-    XD --> MIX
-    DBI --> MIX
-    SUBMIX --> MIX
-    MIX -- "send" --> ZOOM
-    ZOOM -- "return" --> MIX
-    MIX --> MON
+    DBI -- "mix" --> L6
+    DBI -- "kick" --> L6
+    DFAM --> L6
+    MODELD --> L6
+    SWAP --> L6
+    SUBH --> L6
+    XD --> L6
+    L6 -- "send" --> FX
+    FX -- "return" --> L6
+    L6 --> MON
 
     %% ----- carry no signal, they only steer the layout -----
-    %% RAIL is an invisible stand-in for the submixer: it holds the voices
-    %% that bypass the submixer in one column with the rest, without the
-    %% submixer itself being dragged down to the middle of all six of them
-    RAIL[" "]:::pin
-    MODELD ~~~ RAIL
-    SWAP ~~~ RAIL
-    XD ~~~ RAIL
-    DBI ~~~ RAIL
-    RAIL ~~~ MIX
     %% DFAM among the voices instead of pushed to an end of the column,
-    %% monitors out of the Zoom's column
+    %% monitors out of the FX pedal's column
     THRU ~~~ DFAM
-    ZOOM ~~~ MON
+    FX ~~~ MON
 
     class HAPAX,THRU seq
-    class MODELD,SUBH,DFAM,SWAP,XD,DBI voice
-    class SUBMIX,MIX mix
-    class ZOOM fx
+    class DBI,DFAM,MODELD,SWAP,SUBH,XD voice
+    class L6 mix
+    class FX fx
     class MON mon
     class LA,LB,LC,LD,LE,LF pin
     class c1,k1 cv
 ```
 
-|             | Model D | Subharmonicon     | Shruthi-1 ⇄ Donner B1 | Minilogue XD | DFAM                | DrumBrute Impact |
-| ----------- | ------- | ----------------- | --------------------- | ------------ | ------------------- | ---------------- |
-| Hapax track | 1       | 2                 | 3                     | 4            | 5                   | 10               |
-| Thru out    | 1       | 2                 | 3                     | 4            | —                   | 5                |
-| MIDI ch     | 1       | 2                 | 3                     | 4            | —                   | 10               |
-| CV / gate   | —       | —                 | —                     | —            | gate 1 → ADV/CLOCK  | —                |
-| Mixer ch    | 1       | 2 (Moog submixer) | 3                     | 4 (stereo)   | 2 (Moog submixer)   | tape in          |
+|             | DrumBrute Impact | DFAM               | Model D | Shruthi-1 ⇄ Donner B1 | Subharmonicon | Minilogue XD | DrumBrute kick | MS-70CDR+ |
+| ----------- | ---------------- | ------------------ | ------- | --------------------- | ------------- | ------------ | -------------- | --------- |
+| Hapax track | 1                | 2                  | 3       | 4                     | 5             | 6            | 1              |           |
+| Thru out    | 5                |                    | 1       | 3                     | 2             | 4            | 5              |           |
+| MIDI ch     | 1                |                    | 3       | 4                     | 5             | 6            | 1              |           |
+| CV / gate   |                  | gate 1 → ADV/CLOCK |         |                       |               |              |                |           |
+| L6max strip | 1 (mono mix)     | 2                  | 3       | 4                     | 5             | 6 (stereo)   | 7              | 8 ← aux 1 |
