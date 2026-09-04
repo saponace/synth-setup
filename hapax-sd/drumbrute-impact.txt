@@ -25,9 +25,9 @@ MAXRATE NULL
 8:NULL:NULL:41 Crash
 9:NULL:NULL:40 Tom L
 10:NULL:NULL:39 Tom H
-11:NULL:NULL:38 Snare 2
-12:NULL:NULL:42 Cowbell
-13:NULL:NULL:45 FM
+11:NULL:NULL:45 FM
+12:NULL:NULL:57 Col FM
+13:NULL:NULL:38 Snare 2
 14:NULL:NULL:55 Col Cl Hat
 15:NULL:NULL:56 Col Op Hat
 16:NULL:NULL:53 Col Crash
@@ -49,6 +49,4 @@ MAXRATE NULL
 [/AUTOMATION]
 
 [COMMENT]
-Factory drum map, Arturia manual section 9.10.5. Two lane names are
-aliases. Clap is Colored Snare 2 (note 50). Crash is Cymbal (note 41).
 [/COMMENT]
