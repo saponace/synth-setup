@@ -28,8 +28,8 @@ flowchart LR
     DBI["DrumBrute Impact"]
     DFAM["DFAM"]
     MODELD["Model D"]
-    SWAP["Shruthi-1 ⇄ Donner B1"]
-    SUBH["Subharmonicon"]
+    SHRUTHI["Shruthi-1"]
+    DONNER["Donner B1"]
     XD["Minilogue XD"]
     L6["L6max"]
     FX["MS-70CDR+"]
@@ -42,8 +42,8 @@ flowchart LR
     HAPAX -.-> THRU
     THRU -.-> DBI
     THRU -.-> MODELD
-    THRU -.-> SWAP
-    THRU -.-> SUBH
+    THRU -.-> SHRUTHI
+    THRU -.-> DONNER
     THRU -.-> XD
     XD -.-> HAPAX
     HAPAX -.-> L6
@@ -53,8 +53,8 @@ flowchart LR
     DBI -- "kick" --> L6
     DFAM --> L6
     MODELD --> L6
-    SWAP --> L6
-    SUBH --> L6
+    SHRUTHI --> L6
+    DONNER --> L6
     XD --> L6
     L6 -- "send" --> FX
     FX -- "return" --> L6
@@ -67,7 +67,7 @@ flowchart LR
     FX ~~~ MON
 
     class HAPAX,THRU seq
-    class DBI,DFAM,MODELD,SWAP,SUBH,XD voice
+    class DBI,DFAM,MODELD,SHRUTHI,DONNER,XD voice
     class L6 mix
     class FX fx
     class MON mon
@@ -75,10 +75,10 @@ flowchart LR
     class c1,k1 cv
 ```
 
-|             | DrumBrute Impact | DFAM               | Model D | Shruthi-1 ⇄ Donner B1 | Subharmonicon | Minilogue XD | DrumBrute kick | MS-70CDR+ |
-| ----------- | ---------------- | ------------------ | ------- | --------------------- | ------------- | ------------ | -------------- | --------- |
-| Hapax track | 1                | 2                  | 3       | 4                     | 5             | 6            | 1              |           |
-| Thru out    | 5                |                    | 1       | 3                     | 2             | 4            | 5              |           |
-| MIDI ch     | 1                |                    | 3       | 4                     | 5             | 6            | 1              |           |
-| CV / gate   |                  | gate 1 → ADV/CLOCK |         |                       |               |              |                |           |
-| L6max strip | 1 (mono mix)     | 2                  | 3       | 4                     | 5             | 6 (stereo)   | 7              | 8 ← aux 1 |
+|             | DrumBrute Impact | DrumBrute kick | DFAM               | Model D | Minilogue XD | Shruthi-1 | Donner B1 | MS-70CDR+ |
+| ----------- | ---------------- | -------------- | ------------------ | ------- | ------------ | --------- | --------- | --------- |
+| Hapax track | 1                | 1              | 3                  | 4       | 5            | 6         | 7         |           |
+| Thru out    | 5                | 5              |                    | 1       | 4            | 3         | 2         |           |
+| MIDI ch     | 1                | 1              |                    | 4       | 5            | 6         | 7         |           |
+| CV / gate   |                  |                | gate 1 → ADV/CLOCK |         |              |           |           |           |
+| L6max strip | 1 (mono mix)     | 2              | 3                  | 4       | 5 (stereo)   | 6         | 7         | 8 ← aux 1 |
