@@ -79,8 +79,7 @@ flowchart LR
 |             | DrumBrute Impact | DrumBrute kick | DFAM               | Model D    | Minilogue XD | Shruthi-1 | Donner B1 | MS-70CDR+ |
 | ----------- | ---------------- | -------------- | ------------------ | ---------- | ------------ | --------- | --------- | --------- |
 | Hapax track | 1                | 1              | 3                  | 4          | 5            | 6         | 7         |           |
-| Thru out    | 1                | 1              |                    | 2          | 3            | 4         | 5         |           |
+| L6max strip | 1                | 2              | 3                  | 4          | 5            | 6         | 7         | 8 ← aux 1 |
 | MIDI ch     | 1                | 1              |                    | 4          | 5            | 6         | 7         |           |
 | CV          |                  |                |                    | 1 → cutoff |              |           |           |           |
 | Gate        |                  |                | 1 → ADV/CLOCK      |            |              |           |           |           |
-| L6max strip | 1                | 2              | 3                  | 4          | 5            | 6         | 7         | 8 ← aux 1 |
