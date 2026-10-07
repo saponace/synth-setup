@@ -28,9 +28,9 @@ flowchart LR
     DBI["DrumBrute Impact"]
     DFAM["DFAM"]
     MODELD["Model D"]
+    XD["Minilogue XD"]
     SHRUTHI["Shruthi-1"]
     DONNER["Donner B1"]
-    XD["Minilogue XD"]
     L6["L6max"]
     FX["MS-70CDR+"]
     MON["Monitors"]
@@ -42,10 +42,12 @@ flowchart LR
     %% ----- MIDI -----
     HAPAX -.-> THRU
     THRU -.-> DBI
+    %% no signal, keeps DFAM among the voices, between DrumBrute and Model D
+    THRU ~~~ DFAM
     THRU -.-> MODELD
+    THRU -.-> XD
     THRU -.-> SHRUTHI
     THRU -.-> DONNER
-    THRU -.-> XD
     XD -.-> HAPAX
     HAPAX -.-> L6
 
@@ -54,17 +56,15 @@ flowchart LR
     DBI -- "kick" --> L6
     DFAM --> L6
     MODELD --> L6
+    XD --> L6
     SHRUTHI --> L6
     DONNER --> L6
-    XD --> L6
     L6 -- "send" --> FX
     FX -- "return" --> L6
     L6 --> MON
 
     %% ----- carry no signal, they only steer the layout -----
-    %% DFAM among the voices instead of pushed to an end of the column,
     %% monitors out of the FX pedal's column
-    THRU ~~~ DFAM
     FX ~~~ MON
 
     class HAPAX,THRU seq
