@@ -16,7 +16,7 @@ flowchart LR
 
     %% legend, tied to Hapax by invisible links so it lands in the left columns
     LA[" "] -. "MIDI" .-> LB[" "]
-    LC[" "] -- "CV / gate" --> LD[" "]
+    LC[" "] == "CV / gate" ==> LD[" "]
     LE[" "] -- "audio" --> LF[" "]
     LB ~~~ HAPAX
     LD ~~~ HAPAX
@@ -35,8 +35,8 @@ flowchart LR
     MON["Monitors"]
 
     %% ----- CV / gate -----
-    HAPAX --> DFAM
-    HAPAX --> MODELD
+    HAPAX ==> DFAM
+    HAPAX ==> MODELD
 
     %% ----- MIDI -----
     HAPAX -.-> THRU
@@ -72,8 +72,6 @@ flowchart LR
     class FX fx
     class MON mon
     class LA,LB,LC,LD,LE,LF pin
-    %% CV / gate dashing, by link index: legend line 1, Hapax → DFAM 6, Hapax → Model D 7
-    linkStyle 1,6,7 stroke-dasharray: 7 4
 ```
 
 |             | DrumBrute Impact | DrumBrute kick | DFAM               | Model D    | Minilogue XD | Shruthi-1 | Donner B1 | MS-70CDR+ |
