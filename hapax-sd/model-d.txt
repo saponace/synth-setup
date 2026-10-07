@@ -1,0 +1,40 @@
+VERSION 1
+
+TRACKNAME Model D
+
+TYPE POLY
+
+OUTPORT A
+
+OUTCHAN 4
+
+INPORT NULL
+
+INCHAN NULL
+
+MAXRATE NULL
+
+[DRUMLANES]
+[/DRUMLANES]
+
+[PC]
+[/PC]
+
+[CC]
+[/CC]
+
+[NRPN]
+[/NRPN]
+
+[ASSIGN]
+[/ASSIGN]
+
+[AUTOMATION]
+CV:1 #Cutoff
+PB
+[/AUTOMATION]
+
+[COMMENT]
+Notes over MIDI, filter cutoff over Hapax CV 1 into the Model D
+cutoff CV input.
+[/COMMENT]

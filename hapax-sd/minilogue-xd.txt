@@ -6,7 +6,7 @@ TYPE POLY
 
 OUTPORT A
 
-OUTCHAN 6
+OUTCHAN 5
 
 INPORT NULL
 
@@ -143,14 +143,6 @@ MAXRATE NULL
 [/NRPN]
 
 [ASSIGN]
-1 CC:88 #Mod Type
-2 CC:96 #Mod Sub-Type
-3 CC:89 #Delay Type
-4 CC:90 #Reverb Type
-5 CC:29 #Mod Depth
-6 CC:105 #Delay Time
-7 CC:106 #Delay Depth
-8 CC:109 #Reverb Depth
 [/ASSIGN]
 
 [AUTOMATION]
