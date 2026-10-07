@@ -13,10 +13,11 @@ flowchart LR
     classDef fx fill:#f4ecfb,stroke:#7c4dbd,color:#1c1c20
     classDef mon fill:#fdecec,stroke:#c0392b,color:#1c1c20
     classDef pin fill:none,stroke:none
+    classDef cv stroke-dasharray: 7 4
 
     %% legend, tied to Hapax by invisible links so it lands in the left columns
     LA[" "] -. "MIDI" .-> LB[" "]
-    LC[" "] == "CV / gate" ==> LD[" "]
+    LC[" "] k1@-- "CV / gate" --> LD[" "]
     LE[" "] -- "audio" --> LF[" "]
     LB ~~~ HAPAX
     LD ~~~ HAPAX
@@ -35,8 +36,8 @@ flowchart LR
     MON["Monitors"]
 
     %% ----- CV / gate -----
-    HAPAX ==> DFAM
-    HAPAX ==> MODELD
+    HAPAX c1@--> DFAM
+    HAPAX c2@--> MODELD
 
     %% ----- MIDI -----
     HAPAX -.-> THRU
@@ -72,6 +73,7 @@ flowchart LR
     class FX fx
     class MON mon
     class LA,LB,LC,LD,LE,LF pin
+    class c1,c2,k1 cv
 ```
 
 |             | DrumBrute Impact | DrumBrute kick | DFAM               | Model D    | Minilogue XD | Shruthi-1 | Donner B1 | MS-70CDR+ |
