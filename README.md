@@ -37,6 +37,7 @@ flowchart LR
 
     %% ----- CV / gate -----
     HAPAX c1@--> DFAM
+    HAPAX c2@--> MODELD
 
     %% ----- MIDI -----
     HAPAX -.-> THRU
@@ -72,13 +73,14 @@ flowchart LR
     class FX fx
     class MON mon
     class LA,LB,LC,LD,LE,LF pin
-    class c1,k1 cv
+    class c1,c2,k1 cv
 ```
 
-|             | DrumBrute Impact | DrumBrute kick | DFAM               | Model D | Minilogue XD | Shruthi-1 | Donner B1 | MS-70CDR+ |
-| ----------- | ---------------- | -------------- | ------------------ | ------- | ------------ | --------- | --------- | --------- |
-| Hapax track | 1                | 1              | 3                  | 4       | 5            | 6         | 7         |           |
-| Thru out (any port, all ch on all outs) | 1                | 1              |                    | 2       | 3            | 4         | 5         |           |
-| MIDI ch     | 1                | 1              |                    | 4       | 5            | 6         | 7         |           |
-| CV / gate   |                  |                | gate 1 → ADV/CLOCK |         |              |           |           |           |
-| L6max strip | 1 (mono mix)     | 2              | 3                  | 4       | 5 (stereo)   | 6         | 7         | 8 ← aux 1 |
+|             | DrumBrute Impact | DrumBrute kick | DFAM               | Model D    | Minilogue XD | Shruthi-1 | Donner B1 | MS-70CDR+ |
+| ----------- | ---------------- | -------------- | ------------------ | ---------- | ------------ | --------- | --------- | --------- |
+| Hapax track | 1                | 1              | 3                  | 4          | 5            | 6         | 7         |           |
+| Thru out    | 1                | 1              |                    | 2          | 3            | 4         | 5         |           |
+| MIDI ch     | 1                | 1              |                    | 4          | 5            | 6         | 7         |           |
+| CV          |                  |                |                    | 1 → cutoff |              |           |           |           |
+| Gate        |                  |                | 1 → ADV/CLOCK      |            |              |           |           |           |
+| L6max strip | 1                | 2              | 3                  | 4          | 5            | 6         | 7         | 8 ← aux 1 |
